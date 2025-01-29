@@ -388,7 +388,8 @@ return [
     'idps' => [
         // The key will be used as an IdP identifier as well as in routes.
         'default' => [
-            'relay_state_url' => env('SAML2_RELAY_STATE_URL', ''),
+            // Use "relay_state_url" to override "loginRoute" per IdP.
+            // 'relay_state_url' => env('SAML2_RELAY_STATE_URL'),
             // Place any other IdP related configuration from the 'idp' section
             // in the https://github.com/SAML-Toolkits/php-saml#settings below.
             // Identifier of the IdP entity  (must be a URI).
@@ -403,9 +404,6 @@ return [
             'singleLogoutService' => [
                 // URL Location of the IdP where SLO Request will be sent.
                 'url' => '',
-                // URL location of the IdP where SLO Response will be sent (ResponseLocation)
-                // if not set, url for the SLO Request will be used.
-                'responseUrl' => '',
             ],
         ],
     ],
